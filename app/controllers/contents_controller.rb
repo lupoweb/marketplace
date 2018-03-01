@@ -1,5 +1,9 @@
 class ContentsController < ApplicationController
   before_action :set_content, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index, :show]
+  before_action :check_user, only: [:edit,:update, :destroy]
+  
+  
 
   # GET /contents
   # GET /contents.json
@@ -14,7 +18,7 @@ class ContentsController < ApplicationController
 
   # GET /contents/new
   def new
-    @content = Content.new
+    @content = current_user.contents.build
   end
 
   # GET /contents/1/edit
@@ -24,7 +28,7 @@ class ContentsController < ApplicationController
   # POST /contents
   # POST /contents.json
   def create
-    @content = Content.new(content_params)
+    @content = current_user.contents.build(content_params)
 
     respond_to do |format|
       if @content.save
@@ -71,4 +75,10 @@ class ContentsController < ApplicationController
     def content_params
       params.require(:content).permit(:title, :description, :price)
     end
+
+    def check_user
+      if current_user != @content.user 
+        redirect_to root_url, alert: "Acces Denied"
+      end 
+    end 
 end
