@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :contents
   devise_for :users
   #pages controller
   root 'pages#home'
