@@ -1,5 +1,7 @@
 <p id="notice"><%= notice %></p>
-
+<p>
+  <%= image_tag @content.cover.url(:medium) %>
+</p>
 <p>
   <strong>Title:</strong>
   <%= @content.title %>

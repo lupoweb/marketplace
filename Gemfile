@@ -30,6 +30,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 #gem for users
 gem 'devise'
+#gem for image
+gem "paperclip", "~>4.3"
 # Use Unicorn as the app server
 # gem 'unicorn'
 

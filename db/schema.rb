@@ -11,15 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180301155237) do
+ActiveRecord::Schema.define(version: 20180302102351) do
 
   create_table "contents", force: :cascade do |t|
     t.string   "title"
     t.text     "description"
     t.decimal  "price"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
     t.integer  "user_id"
+    t.string   "cover_file_name"
+    t.string   "cover_content_type"
+    t.integer  "cover_file_size"
+    t.datetime "cover_updated_at"
+    t.string   "attachment_file_name"
+    t.string   "attachment_content_type"
+    t.integer  "attachment_file_size"
+    t.datetime "attachment_updated_at"
   end
 
   create_table "users", force: :cascade do |t|
