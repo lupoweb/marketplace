@@ -8,7 +8,8 @@ class ContentsController < ApplicationController
   # GET /contents
   # GET /contents.json
   def index
-    @contents = Content.all
+    @contents = Content.all.reverse_order.paginate(:page => params[:page], :per_page => 20)
+    #order("created_at DESC")
   end
 
   # GET /contents/1

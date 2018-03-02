@@ -35,6 +35,10 @@ gem "paperclip", "~>4.3"
 # Use Unicorn as the app server
 # gem 'unicorn'
 
+#gem for pagination
+gem 'will_paginate', '~> 3.1.0'
+gem 'will_paginate-materialize'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
