@@ -1,5 +1,12 @@
 class Content < ActiveRecord::Base
+  
+  extend FriendlyId
+  friendly_id :title, use: :slugged
+
   belongs_to :user
+
+  has_many :sales
+
   has_attached_file :cover
   validates_attachment_content_type :cover, content_type: /\Aimage\/.*\z/,
   message: "You can upload only Images" 
@@ -9,7 +16,7 @@ class Content < ActiveRecord::Base
   message: "Not Supported"
 
   validates :title, :description, :price, presence: true
-  validates :price, numericality: { greather_than: 0 }
+  validates :price, numericality: { greather_than: 49 }
   validates :cover, attachment_presence: true
   validates :attachment, attachment_presence: true
 end 

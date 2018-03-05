@@ -39,6 +39,11 @@ gem "paperclip", "~>4.3"
 gem 'will_paginate', '~> 3.1.0'
 gem 'will_paginate-materialize'
 
+# freindly_id 
+gem 'friendly_id', '~> 5.1.0'
+
+#ENVIROMENTS
+gem 'dotenv-rails', groups: [:development, :test]
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
