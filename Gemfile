@@ -1,6 +1,4 @@
 source 'https://rubygems.org'
-ruby '2.2.1'
-
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.4'
@@ -32,6 +30,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise'
 #gem for image
 gem "paperclip", "~>4.3"
+
+gem 'aws-sdk'
 # Use Unicorn as the app server
 # gem 'unicorn'
 
@@ -66,7 +66,6 @@ group :development do
 end
 
 group :production do
-  gem 'pg', '0.15.1'
+  gem 'pg', '0.18'
   gem 'rails_12factor'
 end
-
