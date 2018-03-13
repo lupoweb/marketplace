@@ -15,6 +15,8 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
 $(document).ready(function(){
-  $('.parallax').parallax();
+  $('ul.tabs').tabs();
 });
+    

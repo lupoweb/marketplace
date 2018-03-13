@@ -1,0 +1,79 @@
+<h1 class="center"> Dashboard </h1>
+
+<div class="row">
+  <div class="col s12">
+    <ul class="tabs">
+      <li class="tab col s3"><a href="#historical">historical</a></li>
+      <li class="tab col s3"><a href="#onSale">on sale</a></li>
+    </ul>
+  </div>
+  <div id="historical" class="col s12">
+    <h4>Sales</h4>
+    <table> 
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Amount</th>
+          <th>Date</th>
+          <th>Buyer</th>
+        </tr>
+      </thead>
+        <tbody>
+          <% @sales.each do |sale| %>
+            <tr>
+              <th><%= sale.content.title %></th>
+              <th><%= number_to_currency(sale.amount / 100) %></th>
+              <th><%= time_age_in_words(sale.created_at) %> ago </th>
+              <th><%= sale.email_buyer %>
+            </tr>
+          <% end %>
+        </tbody>
+    </table> 
+
+    <h4>Shopping</h4> 
+   
+    <table> 
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Price</th>
+          <th>Date</th>
+          <th>Seller</th>
+        </tr>
+      </thead>
+        <tbody>
+          <% @purchased.each do |purchased| %>
+            <tr>
+              <th><%= link_to purchased.content.title, pickup_path(purchased.guid) %></th>
+              <th><%= purchased.amount %></th>
+              <th><%= purchased.created_at %></th>
+              <th><%= purchased.email_seller %>
+            </tr>
+          <% end %>
+        </tbody>
+    </table>       
+  </div>
+  
+  <div id="onSale" class="col s12">
+    <table> 
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Price</th>
+          <th>Created at</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+        <tbody>
+          <% @contents.each do |content| %>
+            <tr>
+              <th><%= link_to content.title, content_path(content) %></th>
+              <th><%= content.price %></th>
+              <th><%= content.created_at %></th>
+              <th><%= link_to "Update", edit_content_path(content) %> | <%= link_to "Delete", content, method: :delete, data: {confirm: "do you really want to delete this content?"} %>
+            </tr>
+          <% end %>
+        </tbody>
+    </table>
+  </div>
+</div>
