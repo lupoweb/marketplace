@@ -30,8 +30,6 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise'
 #gem for image
 gem "paperclip", "~>4.3"
-
-gem 'aws-sdk'
 # Use Unicorn as the app server
 # gem 'unicorn'
 
@@ -50,6 +48,9 @@ gem 'dotenv-rails', groups: [:development, :test]
 #payments
 gem 'stripe'
 gem 'aasm'
+
+#style
+gem 'font-awesome-sass'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
